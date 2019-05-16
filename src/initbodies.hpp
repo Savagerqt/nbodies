@@ -6,9 +6,9 @@
 //  Copyright © 2017 VIVIER TANGUY. All rights reserved.
 //
 
-#ifndef InitBodies_hpp
-#define InitBodies_hpp
-#include "Body.hpp"
+#ifndef initbodies_hpp
+#define initbodies_hpp
+#include "body.hpp"
 #include <stdio.h>
 
 double circlev(double rx, double ry) ;              //    Fonction auxiliaire

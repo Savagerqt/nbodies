@@ -6,19 +6,19 @@
 //  Copyright © 2017 VIVIER TANGUY. All rights reserved.
 //
 
-#ifndef GeneralBodies_hpp
-#define GeneralBodies_hpp
+#ifndef generalbodies_hpp
+#define generalbodies_hpp
 
 #include <stdio.h>
 #include <SDL2/SDL.h>
-#include "Body.hpp"
+#include "body.hpp"
 
 //
 //    Ce fichier contient quelques fonctions utiles pour traiter
 //    une liste de corps
 //
 
-//     Met à jour les corps 
+//     Met à jour les corps
 void update(int n, Body* bodies,double dt) ;
 
 //    Trace les corps sur le renderer
@@ -28,6 +28,6 @@ void plot(int n, Body* bodies, double scale, SDL_Renderer* renderer) ;
 void printBodies(int n, Body* bodies) ;
 
 //    Remet à 0 les forces des corps de la liste
-void resetForce(int n, Body* bodies) ; 
+void resetForce(int n, Body* bodies) ;
 
 #endif /* operation_bodies_hpp */

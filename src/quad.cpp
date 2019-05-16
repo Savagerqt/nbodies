@@ -6,11 +6,11 @@
 //  Copyright © 2017 VIVIER TANGUY. All rights reserved.
 //
 
-#include "Quad.hpp"
-#include "Body.hpp"
+#include "quad.hpp"
+#include "body.hpp"
 #include <stdio.h>
 #include <math.h>
-#include <iostream> 
+#include <iostream>
 using namespace std;
 
 
@@ -168,14 +168,14 @@ Quad Quad::getSub(int i) {
 //    à tous les corps du système étudié
 
 void Quad::add(Body* body) {
-    
+
     //    Si le corps n'est pas dans le cadran, on ne fait rien
     if (in(body) == false) {
         return ;
     }
     //    S'il n'y a pas de corps, on rajoute le corps sur le noeud
     if ((*_body).getMass() == 0 ) {
-        
+
         *_body = *body ;
         // On actualise la valeur du centre de masse
         _totalMass += body->getMass() ;
@@ -198,7 +198,7 @@ void Quad::add(Body* body) {
         _totalMass += body->getMass() ;
         _xbar = (body->getx() * body->getMass() + _xbar * _totalMass)/(_totalMass + body->getMass()) ;
         _ybar = (body->gety() * body->getMass() + _ybar * _totalMass)/(_totalMass + body->getMass()) ;
-        
+
         //    Ensuite on place ces deux corps dans les sous-cadran
         for (int i = 0; i < 4; i++) {
             (_daughters + i)->add(_body);
@@ -231,10 +231,10 @@ void Quad::add(Body* body) {
 
 void Quad::computeForce(Body* body) {
     //    On commence depuis root
-    
+
     //    Si le premier noeud rencontré est exterieur (et que ce n'est pas body)
     //    On ajoute la force au corps
-    
+
     if (_external == 1){
         if ((body->getx() != _body->getx()) || (body->gety() != _body->gety())) {
             body->addForce(_body) ;

@@ -6,7 +6,7 @@
 //  Copyright © 2017 VIVIER TANGUY. All rights reserved.
 //
 
-#include "Body.hpp"
+#include "body.hpp"
 #include <math.h> // pow
 #include <iostream>
 #include <SDL2/SDL.h>
@@ -28,7 +28,7 @@ Body::Body(double mass,double x,double y,double vx ,double vy, int r, int g, int
     _b = b ;
     _fx = 0 ;
     _fy = 0 ;
-    
+
 }
 
 Body::Body() {
@@ -110,7 +110,7 @@ void Body::addForce(double mass, double x, double y) {
 //    Avec la méthode de Barnes-Hut, on utilise plutôt un arbre
 
 void Body::force(int n, Body* bodies) {
-    _fx = 0 ;                               
+    _fx = 0 ;
     _fy = 0 ;
     for (int i =0 ; i < n ; i++ ) {
         if (distance2((bodies + i)) != 0 ) {
@@ -123,7 +123,7 @@ void Body::force(int n, Body* bodies) {
 //    On remet à 0 la force du corps
 void Body::resetForce() {
     _fx = 0 ;
-    _fy = 0 ; 
+    _fy = 0 ;
 }
 
 
@@ -158,18 +158,9 @@ void Body::updateEuler(double dt) {
 void Body::plot(SDL_Renderer *renderer, double scale) {
     SDL_SetRenderDrawColor(renderer, _r, _g, _b, 255) ;
     // Echelle de la fenêtre
-    
+
     int plotx = floor(SIZE + SIZE * _x / scale) ;
     int ploty = floor(SIZE + SIZE * _y / scale) ;
-    
+
     SDL_RenderDrawPoint(renderer, plotx, ploty);
 }
-
-
-
-
-
-
-
-
-

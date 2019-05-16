@@ -6,8 +6,8 @@
 //  Copyright © 2017 VIVIER TANGUY. All rights reserved.
 //
 
-#include "GeneralBodies.hpp"
-#include "Body.hpp"
+#include "generalbodies.hpp"
+#include "body.hpp"
 #include <SDL2/SDL.h>
 #include <stdio.h>
 #include <iostream>
@@ -37,4 +37,3 @@ void resetForce(int n, Body* bodies) {
         (bodies+i)->resetForce() ;
     }
 }
-
