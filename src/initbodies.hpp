@@ -13,9 +13,9 @@
 
 double circlev(double rx, double ry) ;              //    Fonction auxiliaire
 int sign(long double x) ;                           //    Renvoie le signe de x
-Body* initGalaxy(int N) ;                           //    Initialise N corps dans une configuration galactique
+Body* initGalaxy(int n) ;                           //    Initialise N corps dans une configuration galactique
 Body* initU(int n, double scale) ;                  //    Initialise N corps répartis uniformément sur le cadran
-Body* init2Galaxies(int N) ;
+Body* init2Galaxies(int n) ;
 
 
 

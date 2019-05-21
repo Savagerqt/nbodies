@@ -2,8 +2,8 @@
 //  init_bodies.cpp
 //  PROJET_CPP
 //
-//  Created by VIVIER TANGUY on 31/10/2017.
-//  Copyright © 2017 VIVIER TANGUY. All rights reserved.
+//  Created by VIVIER TAnGUY on 31/10/2017.
+//  Copyright © 2017 VIVIER TAnGUY. All rights reserved.
 //
 
 #include "initbodies.hpp"
@@ -22,13 +22,13 @@ using namespace std;
 //    Fonctions auxiliaires pour calculer la vitesse du corps à la position rx,ry
 //    pour un corps massif de poids 10^6*Ms
 double circlev(double rx,double ry) {
-    double r2=sqrt(rx*rx+ry*ry);
-    double numerator=(6.67e-11)*1e6*Ms;
+    double r2 = sqrt(rx*rx+ry*ry);
+    double numerator = (6.67e-11)*1e6*Ms;
     return sqrt(numerator/r2);
 }
 
 int sign(long double x) {
-    if (x>0) {
+    if (x > 0) {
         return 1;
     }
     return -1;
@@ -39,26 +39,26 @@ int sign(long double x) {
 //===========================================================================
 
 
-Body* initGalaxy(int N) {
-    //    Initialise N corps dans une configuration galactique autour d'un corps central très massif
+Body* initGalaxy(int n) {
+    //    Initialise n corps dans une configuration galactique autour d'un corps central très massif
     //    Toutes les étoiles possèdent la même masse
 
-    double radius = pow(10,17);                    // Rayon de la galaxie
+    double radius = pow(10, 17);                    // Rayon de la galaxie
     Body *bodies;
     srand((unsigned)time(0));
     default_random_engine generator;
-    normal_distribution<double> distribution(0,2.2);
+    normal_distribution<double> distribution(0, 2.2);
     //    Initialisaion d'une liste de corps
-    bodies = (Body*) malloc(N*sizeof(Body));       // On alloue la place en mémoire
-    for (int i = 0; i<N; i++) {
+    bodies = (Body*) malloc(n*sizeof(Body));       // On alloue la place en mémoire
+    for (int i = 0; i < n; i++) {
 
         //    On tire deux nombre générés par une gaussienne centrée sur 0 d'écart type 0.05
         //    En moyenne les étoiles se retrouvent à une distance de 0.7*radius du centre
 
         double number1 = distribution(generator);
         double number2 = distribution(generator);
-        double px = radius*number1;
-        double py = radius*number2;
+        double px = radius * number1;
+        double py = radius * number2;
 
         //    Calculs physiques
 
@@ -92,12 +92,13 @@ Body* initU(int n,double scale) {
     int row = floor(pow(n,0.5));
     for (int k = 0; k<row; k++) {
         for (int l=0; l<row; l++) {
-            *(bodies + l + row*k + 1 ) = Body(Ms,
-                            -scale + k * (2*scale/row),
-                            -scale + l * (2*scale/row),
-                            0,
-                            0,
-                            255,255,255);
+            *(bodies + l + row*k + 1 ) = Body(
+                Ms,
+                -scale + k * (2*scale/row),
+                -scale + l * (2*scale/row),
+                0,
+                0,
+                255,255,255);
         }
     }
     return bodies;

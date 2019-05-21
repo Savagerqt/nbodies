@@ -21,7 +21,6 @@ using namespace std;
 //===========================================================================
 # define SCALE 1e18                // Echelle
 # define Ms 1e30                   // Masse de référence (ici masse solaire)
-# define N 10000                    // Nombre de corps
 # define DT 1e11                   // Pas de temps
 # define REC 0                     // Enregistrement des frames
 //===========================================================================
