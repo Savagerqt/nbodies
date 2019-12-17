@@ -21,7 +21,7 @@ void update(int n, Body* bodies,double dt) {
 
 void plot(int n, Body* bodies,double scale, SDL_Renderer* renderer) {
     for (int i = 0; i<n ; i++) {
-        (bodies+i)->plot(renderer,scale) ;
+        (bodies+i)->plot(renderer, scale) ;
     }
 }
 

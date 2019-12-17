@@ -229,27 +229,30 @@ void Quad::add(Body* body) {
 //    et sinon, on continue dans la descente de l'arbre
 //
 
-void Quad::computeForce(Body* body) {
-    //    On commence depuis root
-
-    //    Si le premier noeud rencontré est exterieur (et que ce n'est pas body)
-    //    On ajoute la force au corps
-
-    if (_external == 1){
-        if ((body->getx() != _body->getx()) || (body->gety() != _body->gety())) {
+void Quad::computeForce(Body* body) {   
+    /*
+     *    Si le premier noeud rencontré est exterieur
+     *    (et que ce n'est pas body) 
+     *    On ajoute la force au corps 
+	*/
+    if (_external == 1) {
+        if ( (body->getx() != _body->getx())
+			 || (body->gety() != _body->gety()) ) {
             body->addForce(_body) ;
         }
     }
-    //    Sinon on regarde si 2*_length < distance
+    /* Sinon on regarde si 2*_length < distance */
     else {
         double d = body->distance2(_xbar, _ybar);
         if (4 * _length * _length < d) {
-            //    On ajoute la force que subit le corps par le barycentre des masses
-            //    contenues dans le cadran
+            /* On ajoute la force que subit le corps par
+		   * le barycentre des masses contenues dans
+		   * le cadran */
             body->addForce(_totalMass, _xbar, _ybar) ;
         }
         else {
-            //    Si le critère n'est pas satisfait, on reitère dans les sous-cadrans
+            /* Si le critère n'est pas satisfait, on reitère 
+		   * dans les sous-cadrans */
             for (int i = 0; i < 4; i++) {
                 (_daughters + i)->computeForce(body) ;
             }
